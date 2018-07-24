@@ -22,8 +22,6 @@ public class Main {
         
         frmMemory juego=new frmMemory();
         juego.show();
-        
-        
-    }
-    
+
+    }    
 }
