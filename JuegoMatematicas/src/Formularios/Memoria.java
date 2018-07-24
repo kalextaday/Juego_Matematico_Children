@@ -5,10 +5,12 @@
  */
 package Formularios;
 import Auxiliar.Logica;
+import Auxiliar.Sound;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,35 +18,33 @@ import javax.swing.JButton;
  */
 public class Memoria extends javax.swing.JFrame {
 
-    private Logica logi=new Logica();
+    //private Logica logi=new Logica();
+    private Logica logi;
     private boolean caraUP=false;
+    private boolean primero=false;
     private ImageIcon im1;
     private ImageIcon im2;
     private JButton[] pbtn=new JButton[2];
-    private boolean primero=false;
+    private int puntaje=0;
+    
+    Sound beat=new Sound("Maniac");
     
     /**
      * Creates new form Memoria
      */
     public Memoria() {
         initComponents();
+        
         initialize();
         setCards();
+        
+        beat.play();
     }
     
     //INSTANCIAR LAS IMAGENES DE LAS CARTAS
     private void setCards(){
+        logi=new Logica();
         int[] numbers = logi.getCardNumbers();
-        /*
-        iconBtns(btnC1,numbers,0);
-        iconBtns(btnC2,numbers,1);
-        iconBtns(btnC3,numbers,2);
-        iconBtns(btnC4,numbers,3);
-        iconBtns(btnC5,numbers,4);
-        iconBtns(btnC6,numbers,5);
-        iconBtns(btnC7,numbers,6);
-        iconBtns(btnC8,numbers,7);
-        */
         
         setDisIcon(btnC1,numbers,0);
         setDisIcon(btnC2,numbers,1);
@@ -54,9 +54,6 @@ public class Memoria extends javax.swing.JFrame {
         setDisIcon(btnC6,numbers,5);
         setDisIcon(btnC7,numbers,6);
         setDisIcon(btnC8,numbers,7);
-        
-        
-        
     }
     
     //INSTANCIAR LAS IMAGENES DE LAS CARTAS
@@ -74,6 +71,8 @@ public class Memoria extends javax.swing.JFrame {
         initializeCards(btnC6);
         initializeCards(btnC7);
         initializeCards(btnC8);
+        
+        restart();
     }
     
     //INCIALIZAR IMAGEN DE CARTA VOLTEADA
@@ -96,6 +95,8 @@ public class Memoria extends javax.swing.JFrame {
             im2=(ImageIcon) btn.getDisabledIcon();
             pbtn[1]=btn;
             primero=true;
+            puntaje +=20;
+            questWin();
         }
     }
     
@@ -104,6 +105,8 @@ public class Memoria extends javax.swing.JFrame {
             if(im1.getDescription().compareTo(im2.getDescription()) != 0){
                 pbtn[0].setEnabled(true);
                 pbtn[1].setEnabled(true);
+                if(puntaje > 10)
+                    puntaje -=10;
             }
             caraUP=false;
         }
@@ -117,15 +120,31 @@ public class Memoria extends javax.swing.JFrame {
         btn.setDisabledIcon(icono);
     }
     
-    /*
-    public void iconBtns(JButton btn,int numbers[],int i){
+    //REINICIAR EL JUEGO
+    private void restart(){
+        btnC1.setEnabled(true);
+        btnC2.setEnabled(true);
+        btnC3.setEnabled(true);
+        btnC4.setEnabled(true);
+        btnC5.setEnabled(true);
+        btnC6.setEnabled(true);
+        btnC7.setEnabled(true);
+        btnC8.setEnabled(true);
         
-        ImageIcon img=new ImageIcon ("src/Images/"+numbers[i]+".png");
-        Icon icono=new ImageIcon(img.getImage().getScaledInstance(btn.getWidth(), btn.getHeight(), Image.SCALE_DEFAULT));
-        btn.setIcon(icono);
-        this.repaint();
-    }*/
+        
+        primero=false;
+        caraUP=false;
+        puntaje=0;
+        setCards();
+    }
     
+    //MENSAJE DE HABER GANADO EL JUEGO
+    private void questWin(){
+        if(!btnC1.isEnabled() && !btnC2.isEnabled() && !btnC3.isEnabled() && !btnC4.isEnabled() && !btnC5.isEnabled() &&
+          !btnC6.isEnabled() && !btnC7.isEnabled() && !btnC8.isEnabled())
+            JOptionPane.showMessageDialog(this,"FELICIDADES USTED HA GANADO \n Su Puntaje es:"+puntaje,"WIN !!",JOptionPane.INFORMATION_MESSAGE);
+        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -144,6 +163,7 @@ public class Memoria extends javax.swing.JFrame {
         btnC2 = new javax.swing.JButton();
         btnC5 = new javax.swing.JButton();
         btnC6 = new javax.swing.JButton();
+        btnRestart = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -267,6 +287,14 @@ public class Memoria extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 710, 400));
 
+        btnRestart.setText("REINICIAR");
+        btnRestart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRestartActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnRestart, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 440, 110, 50));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -334,6 +362,13 @@ public class Memoria extends javax.swing.JFrame {
         compare();
     }//GEN-LAST:event_btnC8MouseExited
 
+    private void btnRestartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestartActionPerformed
+        initialize();
+        
+        beat.stop();
+        beat.play();
+    }//GEN-LAST:event_btnRestartActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -378,6 +413,7 @@ public class Memoria extends javax.swing.JFrame {
     private javax.swing.JButton btnC6;
     private javax.swing.JButton btnC7;
     private javax.swing.JButton btnC8;
+    private javax.swing.JButton btnRestart;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
