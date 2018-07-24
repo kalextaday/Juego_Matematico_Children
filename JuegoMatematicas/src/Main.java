@@ -1,6 +1,6 @@
 
 import Auxiliar.Sound;
-import Formularios.Memoria;
+import Formularios.frmMemory;
 
 
 /*
@@ -20,7 +20,7 @@ public class Main {
      */
     public static void main(String[] args) {
         
-        Memoria juego=new Memoria();
+        frmMemory juego=new frmMemory();
         juego.show();
         
         
