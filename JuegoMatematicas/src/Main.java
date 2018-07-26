@@ -1,6 +1,6 @@
 
 import Auxiliar.Sound;
-import Formularios.frmMemory;
+import Frames.*;
 
 
 /*
@@ -18,10 +18,9 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        
-        frmMemory juego=new frmMemory();
-        juego.show();
+    public static void main(String[] args) {        
+        frmMenu frm=new frmMenu();
+        frm.show();
 
     }    
 }

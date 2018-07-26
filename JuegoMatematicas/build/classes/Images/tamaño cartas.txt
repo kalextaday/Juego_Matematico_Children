@@ -1,0 +1,3 @@
+tamaño de las cartas
+ancho: 118
+alto:158
