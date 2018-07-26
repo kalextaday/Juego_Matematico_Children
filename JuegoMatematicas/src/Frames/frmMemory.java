@@ -141,10 +141,16 @@ public class frmMemory extends javax.swing.JFrame {
     
     //MENSAJE DE HABER GANADO EL JUEGO
     private void questWin(){
-        if(!btnC1.isEnabled() && !btnC2.isEnabled() && !btnC3.isEnabled() && !btnC4.isEnabled() && !btnC5.isEnabled() &&
-          !btnC6.isEnabled() && !btnC7.isEnabled() && !btnC8.isEnabled())
-            JOptionPane.showMessageDialog(this,"FELICIDADES USTED HA GANADO \n Su Puntaje es:"+puntaje,"WIN !!",JOptionPane.INFORMATION_MESSAGE);
+        Sound beat1=new Sound("aplausos");
         
+        if(!btnC1.isEnabled() && !btnC2.isEnabled() && !btnC3.isEnabled() && !btnC4.isEnabled() && !btnC5.isEnabled() &&
+          !btnC6.isEnabled() && !btnC7.isEnabled() && !btnC8.isEnabled()){
+            beat.stop();
+            beat1.play();
+            JOptionPane.showMessageDialog(this,"","Has Ganado",JOptionPane.WARNING_MESSAGE, new ImageIcon("src/Images/aplausos.gif"));
+            //JOptionPane.showMessageDialog(this, "Mensaje", "Titulo", JOptionPane.WARNING_MESSAGE, new ImageIcon("src/Images/2.gif"));
+            beat1.stop();
+        }
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -296,7 +302,6 @@ public class frmMemory extends javax.swing.JFrame {
         btnRestart.setBorderPainted(false);
         btnRestart.setContentAreaFilled(false);
         btnRestart.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnRestart.setOpaque(false);
         btnRestart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRestartActionPerformed(evt);
@@ -307,13 +312,16 @@ public class frmMemory extends javax.swing.JFrame {
         btnHelp.setBorderPainted(false);
         btnHelp.setContentAreaFilled(false);
         btnHelp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnHelp.setOpaque(false);
+        btnHelp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHelpActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnHelp, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 0, 80, 80));
 
         btnHome.setBorderPainted(false);
         btnHome.setContentAreaFilled(false);
         btnHome.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnHome.setOpaque(false);
         btnHome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHomeActionPerformed(evt);
@@ -405,6 +413,14 @@ public class frmMemory extends javax.swing.JFrame {
         frm.show();
         
     }//GEN-LAST:event_btnHomeActionPerformed
+
+    private void btnHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHelpActionPerformed
+       beat.stop();
+       frmHelp frm1= new frmHelp();
+       frm1.show();
+       //beat.play();
+       
+    }//GEN-LAST:event_btnHelpActionPerformed
 
     /**
      * @param args the command line arguments

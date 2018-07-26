@@ -142,8 +142,8 @@ public class Memoria extends javax.swing.JFrame {
     private void questWin(){
         if(!btnC1.isEnabled() && !btnC2.isEnabled() && !btnC3.isEnabled() && !btnC4.isEnabled() && !btnC5.isEnabled() &&
           !btnC6.isEnabled() && !btnC7.isEnabled() && !btnC8.isEnabled())
-            JOptionPane.showMessageDialog(this,"FELICIDADES USTED HA GANADO \n Su Puntaje es:"+puntaje,"WIN !!",JOptionPane.INFORMATION_MESSAGE);
-        
+        //JOptionPane.showMessageDialog(this,"FELICIDADES USTED HA GANADO \n :D","WIN !!",JOptionPane.WARNING_MESSAGE, new ImageIcon("src/Images/2.gif"));
+        JOptionPane.showMessageDialog(this, "Mensaje", "Titulo", JOptionPane.WARNING_MESSAGE, new ImageIcon("src/Images/2.gif"));
     }
     /**
      * This method is called from within the constructor to initialize the form.
