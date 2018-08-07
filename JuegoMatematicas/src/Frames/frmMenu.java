@@ -34,9 +34,9 @@ public class frmMenu extends javax.swing.JFrame{
     
     public void initializeComponents(){
         showLbl(lblEspe,"espe");
-        showLbl(lblBoard,"marco2");
         showBtns(btnExit,"exit");
-        showBtns(btnOpen,"jugar");
+        showBtns(btnChildren,"children");
+        showBtns(btnParents,"parents");
     }
     
     public void showLbl(JLabel lbl,String name){
@@ -62,8 +62,8 @@ public class frmMenu extends javax.swing.JFrame{
         jPanel1 = new javax.swing.JPanel();
         lblEspe = new javax.swing.JLabel();
         btnExit = new javax.swing.JButton();
-        lblBoard = new javax.swing.JLabel();
-        btnOpen = new javax.swing.JButton();
+        btnParents = new javax.swing.JButton();
+        btnChildren = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -71,7 +71,9 @@ public class frmMenu extends javax.swing.JFrame{
 
         jPanel1.setBackground(new java.awt.Color(3, 201, 169));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel1.add(lblEspe, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 530, 140));
+
+        lblEspe.setText("logo");
+        jPanel1.add(lblEspe, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 530, 140));
 
         btnExit.setBorderPainted(false);
         btnExit.setContentAreaFilled(false);
@@ -82,18 +84,30 @@ public class frmMenu extends javax.swing.JFrame{
             }
         });
         jPanel1.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 10, 90, 90));
-        jPanel1.add(lblBoard, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, 530, 330));
 
-        btnOpen.setContentAreaFilled(false);
-        btnOpen.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnOpen.addActionListener(new java.awt.event.ActionListener() {
+        btnParents.setText("padres");
+        btnParents.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        btnParents.setContentAreaFilled(false);
+        btnParents.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnParents.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnOpenActionPerformed(evt);
+                btnParentsActionPerformed(evt);
             }
         });
-        jPanel1.add(btnOpen, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 490, 230, 70));
+        jPanel1.add(btnParents, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 240, 260, 260));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 600));
+        btnChildren.setText("niño");
+        btnChildren.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        btnChildren.setContentAreaFilled(false);
+        btnChildren.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnChildren.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnChildrenActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnChildren, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, 260, 260));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 590));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -102,11 +116,15 @@ public class frmMenu extends javax.swing.JFrame{
         System.exit(0); 
     }//GEN-LAST:event_btnExitActionPerformed
 
-    private void btnOpenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOpenActionPerformed
-        frmMemory juego=new frmMemory();
+    private void btnChildrenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChildrenActionPerformed
+        frmLoginChildren objfrm=new frmLoginChildren();
         this.dispose();
-        juego.show();
-    }//GEN-LAST:event_btnOpenActionPerformed
+        objfrm.show();
+    }//GEN-LAST:event_btnChildrenActionPerformed
+
+    private void btnParentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnParentsActionPerformed
+        
+    }//GEN-LAST:event_btnParentsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -144,10 +162,10 @@ public class frmMenu extends javax.swing.JFrame{
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnChildren;
     private javax.swing.JButton btnExit;
-    private javax.swing.JButton btnOpen;
+    private javax.swing.JButton btnParents;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lblBoard;
     private javax.swing.JLabel lblEspe;
     // End of variables declaration//GEN-END:variables
 }

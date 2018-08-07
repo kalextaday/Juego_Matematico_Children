@@ -80,7 +80,7 @@ public class frmMemory extends javax.swing.JFrame {
         cartas.add(btnC8);
     }
     
-    //INICIALIZAR OBJETOS CARTAS
+    //INICIALIZAR IMAGENES POSTERIORES CARTAS
     private void initializeImageBackward(){
         for(int i=0;i<cartas.size();i++){
             images.setCardsBackward(cartas.get(i));
@@ -143,8 +143,8 @@ public class frmMemory extends javax.swing.JFrame {
     private void questWin(){
         Sound beat1=new Sound("aplausos");
         
-        if(!btnC1.isEnabled() && !btnC2.isEnabled() && !btnC3.isEnabled() && !btnC4.isEnabled() && !btnC5.isEnabled() &&
-          !btnC6.isEnabled() && !btnC7.isEnabled() && !btnC8.isEnabled()){
+        if(!cartas.get(0).isEnabled() && !cartas.get(1).isEnabled() && !cartas.get(2).isEnabled() && !cartas.get(3).isEnabled() && 
+           !cartas.get(4).isEnabled() && !cartas.get(5).isEnabled() && !cartas.get(6).isEnabled() && !cartas.get(7).isEnabled()){
             beat.stop();
             beat1.play();
             JOptionPane.showMessageDialog(this,"","Has Ganado",JOptionPane.WARNING_MESSAGE, new ImageIcon("src/Images/aplausos.gif"));
