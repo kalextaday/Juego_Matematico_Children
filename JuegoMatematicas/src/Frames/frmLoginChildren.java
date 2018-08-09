@@ -10,6 +10,8 @@ import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import model.Archive;
+import model.Niño;
 
 /**
  *
@@ -17,6 +19,7 @@ import javax.swing.JOptionPane;
  */
 public class frmLoginChildren extends javax.swing.JFrame {
 
+    Niño obj=new Niño();
     /**
      * Creates new form frmLoginChildren
      */
@@ -126,6 +129,9 @@ public class frmLoginChildren extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Para Ingresar Introduzca su nombre");
         }else{
             frmMenuNino objfrm=new frmMenuNino();
+            obj.setName(txtName.getText());
+            Archive.saveChild(obj);
+            //frmMenuNino objfrm=new frmMenuNino(obj.getName());
             this.dispose();
             objfrm.show();
         }

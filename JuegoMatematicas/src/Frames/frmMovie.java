@@ -20,6 +20,7 @@ import javafx.scene.media.MediaView;
  */
 public class frmMovie extends javax.swing.JFrame {
 
+    MediaPlayer oracleVid;
     private final JFXPanel jfxPanel = new JFXPanel();   
     private String nameFile;
     
@@ -38,21 +39,24 @@ public class frmMovie extends javax.swing.JFrame {
         //Añadimos el panel de JavaFX al JPanel Swing
         jPanel1.setLayout(new BorderLayout());
         jPanel1.add(jfxPanel,BorderLayout.CENTER);
+        //createScene("contar");
+        //oracleVid.play();
+        
     }
     
     public void createScene(String nameMovie){
+        System.out.println("Entro en la escena");
         Platform.runLater(new Runnable() {
              @Override
              public void run() {                 
                 File file = new File("src/Movies/"+nameMovie+".mp4");                                  
-                    MediaPlayer oracleVid = new MediaPlayer(                                       
-                        new Media(file.toURI().toString())
-                    );
+                    oracleVid = new MediaPlayer(new Media(file.toURI().toString()));
                     //se añade video al jfxPanel
                     jfxPanel.setScene(new Scene(new Group(new MediaView(oracleVid))));                    
                     oracleVid.setVolume(0.7);//volumen
                     oracleVid.setCycleCount(MediaPlayer.INDEFINITE);//repite video
                     oracleVid.play();//play video
+                   
              }
         });
     }
@@ -112,6 +116,7 @@ public class frmMovie extends javax.swing.JFrame {
 
     private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
         frmMenuMovies objfrm=new frmMenuMovies();
+        oracleVid.stop();
         this.dispose();
         objfrm.show();
     }//GEN-LAST:event_btnReturnActionPerformed

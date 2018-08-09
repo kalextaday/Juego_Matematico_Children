@@ -123,7 +123,7 @@ public class frmMenu extends javax.swing.JFrame{
     }//GEN-LAST:event_btnChildrenActionPerformed
 
     private void btnParentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnParentsActionPerformed
-        frmLoginParents objfrm=new frmLoginParents();
+        frmLoginPadres objfrm=new frmLoginPadres();
         this.dispose();
         objfrm.show();
     }//GEN-LAST:event_btnParentsActionPerformed

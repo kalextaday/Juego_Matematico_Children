@@ -106,6 +106,7 @@ public class frmMenuMovies extends javax.swing.JFrame {
         this.dispose();
         objfrm.show();
         objfrm.createScene("contar");
+        
     }//GEN-LAST:event_btnMovie1ActionPerformed
 
     private void btnMovie2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMovie2ActionPerformed
