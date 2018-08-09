@@ -6,6 +6,8 @@
 package Frames;
 
 import Auxiliar.Images;
+import Frames.Activitie1.frmStore;
+import Frames.Activitie2.frmIntroAct2;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
@@ -26,7 +28,8 @@ public class frmMenuNino extends javax.swing.JFrame {
         
         //DAR IMAGENES A LOS BOTONES
         initializeComponents();
-
+        
+        
     }
     
     public void initializeComponents(){
@@ -116,11 +119,19 @@ public class frmMenuNino extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnActivitiesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActivitiesActionPerformed
+        frmIntroAct2 objfrm=new frmIntroAct2();
+        this.dispose();
+        objfrm.show();
+        
+        /*
+        frmStore objfrm=new frmStore();
+        this.dispose();
+        objfrm.show();*/
         
     }//GEN-LAST:event_btnActivitiesActionPerformed
 
     private void btnGamesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGamesActionPerformed
-        frmMemory objfrm=new frmMemory();
+        frmMenuGames objfrm=new frmMenuGames();
         this.dispose();
         objfrm.show();
     }//GEN-LAST:event_btnGamesActionPerformed

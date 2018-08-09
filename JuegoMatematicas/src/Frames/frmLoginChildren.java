@@ -6,7 +6,10 @@
 package Frames;
 
 import Auxiliar.Images;
+import java.awt.Color;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -28,10 +31,8 @@ public class frmLoginChildren extends javax.swing.JFrame {
     }
     
     public void initializeComponents(){
-        Images img=new Images();
-        img.setLbl(lblBackground,"login");
-        /*
-        showBtns(btnReturn,"return");
+        
+        showBtns(btnReturn,"return");/*
         showBtns(btnActivities,"activities");
         showBtns(btnGames,"games");
         showBtns(btnMovies,"movies");*/
@@ -53,8 +54,10 @@ public class frmLoginChildren extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         btnSignin = new javax.swing.JButton();
-        txtPasswd = new javax.swing.JTextField();
-        txtUsername = new javax.swing.JTextField();
+        btnReturn = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        txtName = new javax.swing.JTextField();
         lblBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -75,53 +78,69 @@ public class frmLoginChildren extends javax.swing.JFrame {
                 btnSigninActionPerformed(evt);
             }
         });
-        jPanel1.add(btnSignin, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 430, 200, 50));
+        jPanel1.add(btnSignin, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 510, 200, 50));
 
-        txtPasswd.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        txtPasswd.setForeground(new java.awt.Color(153, 153, 153));
-        txtPasswd.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPasswd.setText("Contraseña");
-        txtPasswd.setBorder(null);
-        txtPasswd.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtPasswdMouseClicked(evt);
+        btnReturn.setBorder(null);
+        btnReturn.setContentAreaFilled(false);
+        btnReturn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnReturn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReturnActionPerformed(evt);
             }
         });
-        jPanel1.add(txtPasswd, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 360, 200, 40));
+        jPanel1.add(btnReturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 80, 70));
 
-        txtUsername.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        txtUsername.setForeground(new java.awt.Color(153, 153, 153));
-        txtUsername.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtUsername.setText("Nombre");
-        txtUsername.setBorder(null);
-        txtUsername.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabel1.setFont(new java.awt.Font("Cooper Std Black", 0, 22)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 51, 0));
+        jLabel1.setText("AQUÍ");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, 80, 60));
+
+        jLabel2.setFont(new java.awt.Font("Cooper Std Black", 0, 22)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 51, 0));
+        jLabel2.setText("INGRESA TU NOMBRE");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, 290, 60));
+
+        txtName.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        txtName.setForeground(new java.awt.Color(204, 204, 204));
+        txtName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtName.setText("NOMBRE");
+        txtName.setBorder(null);
+        txtName.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtUsernameMouseClicked(evt);
+                txtNameMouseClicked(evt);
             }
         });
-        jPanel1.add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, 200, 40));
+        jPanel1.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 420, 260, 50));
 
+        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/login.png"))); // NOI18N
         lblBackground.setText("jLabel1");
-        jPanel1.add(lblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 350, 580));
+        jPanel1.add(lblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 430, 660));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 380, 620));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 680));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtPasswdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPasswdMouseClicked
-        txtPasswd.setText("");
-    }//GEN-LAST:event_txtPasswdMouseClicked
-
-    private void txtUsernameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtUsernameMouseClicked
-        txtUsername.setText("");
-    }//GEN-LAST:event_txtUsernameMouseClicked
-
     private void btnSigninActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSigninActionPerformed
-        frmMenuNino objfrm=new frmMenuNino();
+        if(txtName.getText().equals("") || txtName.getText().equals("NOMBRE")){
+            JOptionPane.showMessageDialog(null,"Para Ingresar Introduzca su nombre");
+        }else{
+            frmMenuNino objfrm=new frmMenuNino();
+            this.dispose();
+            objfrm.show();
+        }
+    }//GEN-LAST:event_btnSigninActionPerformed
+
+    private void txtNameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNameMouseClicked
+        txtName.setText("");
+        txtName.setForeground(Color.BLACK);
+    }//GEN-LAST:event_txtNameMouseClicked
+
+    private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
+        frmMenu objfrm=new frmMenu();
         this.dispose();
         objfrm.show();
-    }//GEN-LAST:event_btnSigninActionPerformed
+    }//GEN-LAST:event_btnReturnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -159,10 +178,12 @@ public class frmLoginChildren extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnReturn;
     private javax.swing.JButton btnSignin;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblBackground;
-    private javax.swing.JTextField txtPasswd;
-    private javax.swing.JTextField txtUsername;
+    private javax.swing.JTextField txtName;
     // End of variables declaration//GEN-END:variables
 }

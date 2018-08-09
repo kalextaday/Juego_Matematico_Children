@@ -5,6 +5,7 @@
  */
 package Frames;
 import Auxiliar.*;
+import Frames.Activitie1.frmStore;
 import java.awt.Image;
 import java.util.ArrayList;
 import javax.swing.Icon;
@@ -25,7 +26,7 @@ public class frmMemory extends javax.swing.JFrame {
     private ImageIcon im1;
     private ImageIcon im2;
     private JButton[] pbtn=new JButton[2];
-    private int puntaje=0;
+    //private int puntaje=0;
     
     
     private ArrayList<JButton> cartas=new ArrayList<JButton>();
@@ -61,7 +62,7 @@ public class frmMemory extends javax.swing.JFrame {
         showBtns(btnHelp,"help");
         showBtns(btnHome,"home");
         showBtns(btnRestart,"restart");
-        
+        showBtns(btnReturn,"return");
     }
     
     public void showBtns(JButton btn,String name){
@@ -110,7 +111,7 @@ public class frmMemory extends javax.swing.JFrame {
             im2=(ImageIcon) btn.getDisabledIcon();
             pbtn[1]=btn;
             primero=true;
-            puntaje +=20;
+            //puntaje +=20;
             questWin();
         }
     }
@@ -120,8 +121,8 @@ public class frmMemory extends javax.swing.JFrame {
             if(im1.getDescription().compareTo(im2.getDescription()) != 0){
                 pbtn[0].setEnabled(true);
                 pbtn[1].setEnabled(true);
-                if(puntaje > 10)
-                    puntaje -=10;
+                //if(puntaje > 10)
+                //    puntaje -=10;
             }
             caraUP=false;
         }
@@ -135,7 +136,7 @@ public class frmMemory extends javax.swing.JFrame {
         
         primero=false;
         caraUP=false;
-        puntaje=0;
+        //puntaje=0;
         setCards();
     }
     
@@ -148,7 +149,7 @@ public class frmMemory extends javax.swing.JFrame {
             beat.stop();
             beat1.play();
             JOptionPane.showMessageDialog(this,"","Has Ganado",JOptionPane.WARNING_MESSAGE, new ImageIcon("src/Images/aplausos.gif"));
-            //JOptionPane.showMessageDialog(this, "Mensaje", "Titulo", JOptionPane.WARNING_MESSAGE, new ImageIcon("src/Images/2.gif"));
+            
             beat1.stop();
         }
     }
@@ -173,6 +174,7 @@ public class frmMemory extends javax.swing.JFrame {
         btnRestart = new javax.swing.JButton();
         btnHelp = new javax.swing.JButton();
         btnHome = new javax.swing.JButton();
+        btnReturn = new javax.swing.JButton();
         lblFondoMemory = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -329,6 +331,15 @@ public class frmMemory extends javax.swing.JFrame {
         });
         getContentPane().add(btnHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 80, 80));
 
+        btnReturn.setBorder(null);
+        btnReturn.setContentAreaFilled(false);
+        btnReturn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReturnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnReturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 90, 80));
+
         lblFondoMemory.setText("jLabel2");
         getContentPane().add(lblFondoMemory, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 570));
 
@@ -422,6 +433,12 @@ public class frmMemory extends javax.swing.JFrame {
        
     }//GEN-LAST:event_btnHelpActionPerformed
 
+    private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
+        frmMenuGames objfrm=new frmMenuGames();
+        this.dispose();
+        objfrm.show();
+    }//GEN-LAST:event_btnReturnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -470,6 +487,7 @@ public class frmMemory extends javax.swing.JFrame {
     private javax.swing.JButton btnHelp;
     private javax.swing.JButton btnHome;
     private javax.swing.JButton btnRestart;
+    private javax.swing.JButton btnReturn;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblFondoMemory;
     // End of variables declaration//GEN-END:variables

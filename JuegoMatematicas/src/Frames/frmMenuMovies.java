@@ -56,7 +56,8 @@ public class frmMenuMovies extends javax.swing.JFrame {
         btnMovie1 = new javax.swing.JButton();
         lblMovieBack = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(162, 222, 208));
@@ -68,7 +69,7 @@ public class frmMenuMovies extends javax.swing.JFrame {
                 btnMovie2ActionPerformed(evt);
             }
         });
-        jPanel1.add(btnMovie2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 150, 60));
+        jPanel1.add(btnMovie2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, 210, 60));
 
         btnMovie3.setText("Sumas y Restas");
         btnMovie3.addActionListener(new java.awt.event.ActionListener() {
@@ -76,7 +77,7 @@ public class frmMenuMovies extends javax.swing.JFrame {
                 btnMovie3ActionPerformed(evt);
             }
         });
-        jPanel1.add(btnMovie3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 300, 150, 60));
+        jPanel1.add(btnMovie3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 300, 210, 60));
 
         btnReturn.setBorder(null);
         btnReturn.setContentAreaFilled(false);
@@ -93,9 +94,7 @@ public class frmMenuMovies extends javax.swing.JFrame {
                 btnMovie1ActionPerformed(evt);
             }
         });
-        jPanel1.add(btnMovie1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 150, 60));
-
-        lblMovieBack.setText("lblMovieBack");
+        jPanel1.add(btnMovie1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 210, 60));
         jPanel1.add(lblMovieBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, 100, 70));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 420));

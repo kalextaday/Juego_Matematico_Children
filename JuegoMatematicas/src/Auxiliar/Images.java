@@ -27,33 +27,29 @@ public class Images {
             if(numbers[i]==1){
                 setCardsB(btn,numbers[i]);
                 for(int j=0;j<numbers.length;j++){
-                    if(numbers[j]==1){
+                    if(numbers[j]==1)
                         numbers[j]=11;
-                    }
                 }
             }
             if(numbers[i]==2){
                 setCardsB(btn,numbers[i]);
                 for(int j=0;j<numbers.length;j++){
-                    if(numbers[j]==2){
+                    if(numbers[j]==2)
                         numbers[j]=22;
-                    }
                 }
             }
             if(numbers[i]==3){
                 setCardsB(btn,numbers[i]);
                 for(int j=0;j<numbers.length;j++){
-                    if(numbers[j]==3){
+                    if(numbers[j]==3)
                         numbers[j]=33;
-                    }
                 }
             }
             if(numbers[i]==4){
                 setCardsB(btn,numbers[i]);
                 for(int j=0;j<numbers.length;j++){
-                    if(numbers[j]==4){
+                    if(numbers[j]==4)
                         numbers[j]=44;
-                    }
                 }
             }
         }
@@ -120,10 +116,25 @@ public class Images {
         btn.setIcon(icono);
     }
     
+    
+    public void setBalls(JLabel btn,int i){
+        ImageIcon img=new ImageIcon ("src/Images/activitie/"+i+".png");
+        img.setDescription(String.valueOf(i));
+        //btn.setDisabledIcon(img);
+        btn.setIcon(img);
+    }
+    
+    public void setBallsSub(JLabel btn,int i){
+        ImageIcon img=new ImageIcon ("src/Images/sub/"+i+".png");
+        img.setDescription(String.valueOf(i));
+        //btn.setDisabledIcon(img);
+        btn.setIcon(img);
+    }
+    /*
     public void setFrame(JFrame btn,String nombre){
         ImageIcon img=new ImageIcon ("src/Images/"+nombre+".png");
         Icon icono=new ImageIcon(img.getImage().getScaledInstance(btn.getWidth(), btn.getHeight(), Image.SCALE_DEFAULT));
         btn.setIconImage(img.getImage());
-    }
+    }*/
     
 }
